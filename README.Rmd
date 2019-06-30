@@ -1,0 +1,37 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# tidyvoteny
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+New York State local election resutls in a tidy data frame. It includes election year, election type, assembly district,election district, Office Title, Office Political District, Election District Status, county, congressional district and senate district overlay. All data was obtained through local county websites.
+
+## Installation
+
+You can install the released version of tidyvoteny from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("tidyvoteny")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(tidyvoteny)
+head(nycdb)
+```
