@@ -17,21 +17,42 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
+! Please note that we only have nyc results right now and we are working on updating the database to counties including: Nassau, Suffolk, Rockland, Westchester, Albany, Monroe, Erie, Niagara, Onondaga, and Ulster. 
+
 New York State local election resutls in a tidy data frame. It includes election year, election type, assembly district,election district, Office Title, Office Political District, Election District Status, county, congressional district and senate district overlay. All data was obtained through local county websites.
 
 ## Installation
 
-You can install the released version of tidyvoteny from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of tidyvoteny from Github [tidyvoteny](https://jorgep17.github.io/tidyvoteny/) with:
 
 ``` r
-install.packages("tidyvoteny")
+install.packages("devtools")
+devtools::install.github("jorgep17/tidyvoteny")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Visualize a set to familiarize yourself with the data:
 
 ```{r example}
 library(tidyvoteny)
 head(nycdb)
+```
+
+## Pivot the Results Database
+
+```{r example1}
+library(tidyvoteny)
+# here we determine our district number is '15' and we want to see election results broken down for the 2018 Governor Primary by Congressional District. 
+target = "15"
+formula =  cong_district~Unit.Name
+
+#install.packages("data.table")
+library(data.table)
+# 2018 Governor ####
+Gov18 <- nycdb %>% 
+  dcast.data.table(subset = .(Event == "PE_2018"
+                              & Office == "Governor"), 
+                   formula = formula, 
+                   fun.aggregate = sum,
+                   value.var = "votes")
+Gov18 <- Gov18[,c( "cong_district","Andrew M. Cuomo", "Cynthia E. Nixon")]
 ```
