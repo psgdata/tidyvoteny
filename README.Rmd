@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-! Please note that we only have nyc results right now and we are working on updating the database to counties including: Nassau, Suffolk, Rockland, Westchester, Albany, Monroe, Erie, Niagara, Onondaga, and Ulster. 
+**Please note:** that we only have nyc results right now and we are working on updating the database to counties including: Nassau, Suffolk, Rockland, Westchester, Albany, Monroe, Erie, Niagara, Onondaga, and Ulster. 
 
 New York State local election resutls in a tidy data frame. It includes election year, election type, assembly district,election district, Office Title, Office Political District, Election District Status, county, congressional district and senate district overlay. All data was obtained through local county websites.
 
@@ -49,11 +49,9 @@ formula =  cong_district~Unit.Name
 #install.packages("data.table")
 library(data.table)
 library(dplyr)
-nycdb <- as.numeric(nycdb$votes)
-nycdb <- data.table(nycdb)
 
 # 2018 Governor ####
-Gov18 <-nycdb %>% 
+nycdb %>% 
   dcast.data.table(subset = .(Event == "PE_2018"
                               & Office == "Governor"), 
                    formula = formula, 
