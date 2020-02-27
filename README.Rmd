@@ -33,6 +33,7 @@ devtools::install.github("jorgep17/tidyvoteny")
 ## Visualize a set to familiarize yourself with the data:
 
 ```{r example}
+devtools::install_github("jorgep17/tidyvoteny")
 library(tidyvoteny)
 head(nycdb)
 ```
@@ -47,12 +48,15 @@ formula =  cong_district~Unit.Name
 
 #install.packages("data.table")
 library(data.table)
+library(dplyr)
+nycdb <- as.numeric(nycdb$votes)
+nycdb <- data.table(nycdb)
+
 # 2018 Governor ####
-Gov18 <- nycdb %>% 
+Gov18 <-nycdb %>% 
   dcast.data.table(subset = .(Event == "PE_2018"
                               & Office == "Governor"), 
                    formula = formula, 
                    fun.aggregate = sum,
                    value.var = "votes")
-Gov18 <- Gov18[,c( "cong_district","Andrew M. Cuomo", "Cynthia E. Nixon")]
 ```
