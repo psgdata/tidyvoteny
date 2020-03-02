@@ -1,6 +1,0 @@
-"0","devtools::install_github(""jorgep17/tidyvoteny"")"
-"2","Skipping install of 'tidyvoteny' from a github remote, the SHA1 (a2dcbe99) has not changed since last install.
-  Use `force = TRUE` to force installation
-"
-"0","library(tidyvoteny)"
-"0","head(nycdb)"
