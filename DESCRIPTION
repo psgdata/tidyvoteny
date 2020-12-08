@@ -9,7 +9,7 @@ Description: the tidy data frame of election results has election year, election
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Imports: 
     usethis,
     data.table,

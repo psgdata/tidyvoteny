@@ -3,8 +3,10 @@
 \docType{data}
 \name{nycdb}
 \alias{nycdb}
-\title{NYC ED Level election reaults 2013-2019}
-\format{A data frame with wtih 17 columns}
+\title{NYC ED Level election results 2013-2019}
+\format{
+A data frame with with 17 columns
+}
 \usage{
 nycdb
 }
